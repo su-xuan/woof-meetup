@@ -54,7 +54,7 @@ export const getEventsByDistrict = async (district: string) => {
       _id: event._id.toString()
     }
   });
-};
+}
 
 export const getEventById = async (eventId: string) => {
   const getDocument = async (client: MongoClient) => {
@@ -69,5 +69,22 @@ export const getEventById = async (eventId: string) => {
   return {
     ...event,
     _id: event?._id.toString()
+  }
+}
+
+export const getDistrictBySlug = async (slug: string) => {
+  const getDocument = async (client: MongoClient) => {
+    const db = client.db("meetup");
+    const collectionDb = db.collection("districts");
+    const documents = await collectionDb.findOne({slug: slug});
+    return documents;
+  };
+
+  const client = await connectDatabase();
+  const district = await getDocument(client);
+  
+  return {
+    ...district,
+    _id: district?._id.toString()
   }
 }
