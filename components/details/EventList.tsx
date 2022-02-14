@@ -24,6 +24,7 @@ const EventList: React.FC<Eventlist> = ({ events }) => {
               location={event.location}
               district={event.district}
               slug={event.slug}
+              description={event.description}
             />
           </li>
         ))}

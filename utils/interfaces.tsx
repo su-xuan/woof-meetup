@@ -13,3 +13,12 @@ export interface IEvent {
   slug: string;
   description: string
 }
+
+export interface IDistrict {
+  _id: string,
+  slug:string,
+  name: string,
+  description: string,
+  images: IImage[]
+  
+  }

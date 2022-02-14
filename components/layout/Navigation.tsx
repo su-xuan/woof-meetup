@@ -1,16 +1,14 @@
 import Logo from "./Logo";
-import Button from "../ui/Button";
 import MenuButton from "./MenuButton";
 import { useState } from "react";
 import Link from "next/link";
-import { GetStaticProps } from "next";
+import { IDistrict } from "../../utils/interfaces";
 
-const dummyData = [
-  { slug: "friedrichshain-kreuzberg", name: "Friedrichshain-Kreuzberg" },
-  { slug: "steglitz-zehlendorf", name: "Steglitz-Zehlendorf" },
-  { slug: "tempelhof-schoeneberg", name: "Tempelhof-Schöneberg" },
-];
-const Navigation: React.FC = ({ districts }) => {
+export interface INavigation {
+  districts: IDistrict[];
+}
+
+const Navigation: React.FC<INavigation> = ({ districts }) => {
   const [isMenuOpen, setMenu] = useState(false);
   const menuHandler = () => {
     isMenuOpen ? setMenu(false) : setMenu(true);

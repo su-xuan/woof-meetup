@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import connectDatabase from "../../../utils/dbConnect";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const getDocument = async (client: MongoClient, res: NextApiResponse) => {
-    const [collection, catagory, value] = req.query.find as string;
+    const [collection, catagory, value] = req.query.find as string[];
     const db = client.db("meetup");
     const collectionDb = db.collection(collection);
     if (catagory === '_id') {

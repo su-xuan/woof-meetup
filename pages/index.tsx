@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from "next";
 import EventList from "../components/details/EventList";
 import Stage from "../components/details/Stage";
 import { getAllEvents } from "../utils/events-util";
+import { IEvent } from "../utils/interfaces";
 
 const dummyData = {
   title: "Enjoy Woof Meetup in Berlin!",
@@ -15,11 +16,13 @@ const dummyData = {
 };
 
 
+interface IHomePage {
+  events: IEvent[]
+}
 
 
 
-
-const Home: NextPage = ({ events }) => {
+const Home: NextPage<IHomePage> = ({ events }) => {
   console.log('eventdata', events)
   return (
     <>

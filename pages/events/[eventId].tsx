@@ -1,9 +1,12 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { useRouter } from "next/router";
 import { getEventById } from "../../utils/events-util";
 import Image from "next/image";
+import { IEvent } from "../../utils/interfaces";
 
-const DetailPage: NextPage = ({ event }) => {
+interface IDetailPage {
+  event: IEvent
+}
+const DetailPage: NextPage<IDetailPage> = ({ event }) => {
 
   const { title, image, time, location, description} = event
   return (

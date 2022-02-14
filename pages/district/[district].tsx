@@ -1,22 +1,15 @@
 import type { GetStaticProps, NextPage } from "next";
-import { useRouter } from "next/router";
 import EventList from "../../components/details/EventList";
 import Stage from "../../components/details/Stage";
-import { getAllEvents, getEventsByDistrict } from "../../utils/events-util";
+import { getEventsByDistrict } from "../../utils/events-util";
+import { IDistrict, IEvent } from "../../utils/interfaces";
 
-const dummyData = {
-  title: "Enjoy Woof Meetup in Berlin!",
-  description:
-    "Berlin was voted Germany’s most dog-friendly city. If you are a dog lover in Berlin, this is the right place for you and your four-legged firend. Here you can have the oppotunities to meet people living in the same district, who love dogs just like you. You can share experiences and find potential dog sitters and have fun with tons of dogs!",
-  images: [
-    { src: "/images/landing-page-1.jpg", alt: "two running dogs" },
-    { src: "/images/landing-page-2.jpeg", alt: "dog at Brandenburg Gate" },
-    { src: "/images/landing-page-3.jpeg", alt: "dogs at Reichstag Building" },
-  ],
-};
+interface IDistrictPage {
+  events: IEvent[],
+  district: IDistrict
+}
 
-const Home: NextPage = ({ events, district }) => {
-  console.log('eventdata', events)
+const Home: NextPage<IDistrictPage> = ({ events, district }) => {
   const [event] = events;
   return (
     <>
