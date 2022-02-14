@@ -45,7 +45,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context)=>{
     const slug = context?.params?.district as string;
     const events = await getEventsByDistrict(slug)
-    const [district] = await fetch(`http://localhost:3000/api/find/districts/slug/${slug}`).then(res => res.json())
+    const [district] = await fetch(`${server}/api/find/districts/slug/${slug}`).then(res => res.json())
 
   return {
     props: {
