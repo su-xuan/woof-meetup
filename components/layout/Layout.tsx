@@ -1,12 +1,13 @@
 import Footer from "./Footer";
 import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
+import { server } from "../../config";
 
 const Layout: React.FC = (props) => {
   const [districts, setDistricts] = useState([])
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch('http://localhost:3000/api/get-all/districts')
+      const data = await fetch(`${server}/api/get-all/districts`)
         .then((res) => res.json());
       setDistricts(data);
     }

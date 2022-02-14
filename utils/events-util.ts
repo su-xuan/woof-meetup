@@ -1,8 +1,8 @@
-import { ObjectId } from "mongodb";
+import { server } from "../config";
 
 export const getAllEvents = async () => {
   let events;
-  await fetch("http://localhost:3000/api/get-all/events")
+  await fetch(`${server}/api/get-all/events`)
     .then((res) => res.json())
     .then((data) => (events = data));
   return events;
@@ -10,7 +10,7 @@ export const getAllEvents = async () => {
 
 export const getEventsByDistrict = async (district: string) => {
   let events;
-  await fetch(`http://localhost:3000/api/find/events/district/${district}`)
+  await fetch(`${server}/api/find/events/district/${district}`)
     .then((res) => res.json())
     .then((data) => (events = data));
   return events;
@@ -18,7 +18,7 @@ export const getEventsByDistrict = async (district: string) => {
 
 export const getEventById = async (eventId: string) => {
    let events
-   await fetch(`http://localhost:3000/api/find/events/_id/${eventId}`)
+   await fetch(`${server}/api/find/events/_id/${eventId}`)
    .then((res) => res.json())
    .then((data) => (events = data));
  return events;}
