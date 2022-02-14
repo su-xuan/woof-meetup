@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { getEventById } from "../../utils/events-util";
 import Image from "next/image";
 import { IEvent } from "../../utils/interfaces";
+import { server } from "../../config";
 
 interface IDetailPage {
   event: IEvent
@@ -35,7 +36,7 @@ const DetailPage: NextPage<IDetailPage> = ({ event }) => {
 };
 
 export const getStaticPaths = async () => {
-  const events = await fetch('http://localhost:3000/api/get-all/events').then(res => res.json());
+  const events = await fetch(`${server}/api/get-all/events`).then(res => res.json());
 
     const paths = events.map((event: { _id: string; }) => {
         return({
