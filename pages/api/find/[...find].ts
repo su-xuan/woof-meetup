@@ -28,7 +28,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(500).json({ message: "Retrieving data failed!" });
     return;
   }
-  res.status(200).json({message: "Retrieved data succeeded!"})
 };
 
 export default handler;

@@ -2,7 +2,7 @@ import type { GetStaticProps, NextPage } from "next";
 import EventList from "../../components/details/EventList";
 import Stage from "../../components/details/Stage";
 import { server } from "../../config";
-import { getEventsByDistrict } from "../../utils/events-util";
+import { getAllDistrictSlugs, getEventsByDistrict } from "../../utils/events-util";
 import { IDistrict, IEvent } from "../../utils/interfaces";
 
 
@@ -26,7 +26,7 @@ const Home: NextPage<IDistrictPage> = ({ events, district }) => {
 };
 
 export const getStaticPaths = async () => {
-    const districts = await fetch(`${server}/api/get-all/districts`).then(res => res.json());
+    const districts = await getAllDistrictSlugs();
 
     const paths = districts.map((district: { slug: string; }) => {
         return({

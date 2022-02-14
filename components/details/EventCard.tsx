@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const EventCard: React.FC<IEvent> = (event) => {
-  console.log('event', event)
   const {_id, title, image, time, location } = event;
   return (
     <div className="flex justify-center py-3.5">

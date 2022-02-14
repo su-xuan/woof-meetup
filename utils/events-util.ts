@@ -1,5 +1,6 @@
 import { MongoClient, ObjectId } from "mongodb";
 import connectDatabase from "./dbConnect";
+import { IDistrict } from "./interfaces";
 
 export const getAllEvents = async () => {
   const getDocument = async (client: MongoClient) => {
@@ -19,6 +20,22 @@ export const getAllEvents = async () => {
     }
   });
 };
+
+export const getAllDistrictSlugs = async () => {
+  const getDocument = async (client: MongoClient) => {
+    const db = client.db("meetup");
+    const collectionDb = db.collection("districts");
+    const documents = await collectionDb.find().toArray();
+    return documents;
+  };
+
+  const client = await connectDatabase();
+  const districts = await getDocument(client);
+  
+  return districts.map((district) => {
+    return { slug: district.slug }
+  });
+}
 
 export const getEventsByDistrict = async (district: string) => {
   const getDocument = async (client: MongoClient) => {

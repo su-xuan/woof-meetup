@@ -23,7 +23,6 @@ interface IHomePage {
 
 
 const Home: NextPage<IHomePage> = ({ events }) => {
-  console.log('eventdata', events)
   return (
     <>
       <Stage
