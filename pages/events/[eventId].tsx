@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { getAllEvents, getEventById } from "../../utils/events-util";
 import Image from "next/image";
 import { IEvent } from "../../utils/interfaces";
-import { server } from "../../config";
 
 interface IDetailPage {
   event: IEvent

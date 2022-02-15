@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import EventList from "../components/details/EventList";
 import Stage from "../components/details/Stage";
 import { getAllEvents } from "../utils/events-util";
@@ -24,6 +25,14 @@ interface IHomePage {
 
 const Home: NextPage<IHomePage> = ({ events }) => {
   return (
+    <>
+    <Head>
+      <title>Woof Meetup</title>
+      <meta
+      name="description"
+      content="Meetups for dog lovers and dog owners in Berlin!"
+      />
+    </Head>
     <div className="w-full pt-16">
       <Stage
         title={dummyData.title}
@@ -32,6 +41,7 @@ const Home: NextPage<IHomePage> = ({ events }) => {
       />
       <EventList events={events} />
     </div>
+    </>
   );
 };
 

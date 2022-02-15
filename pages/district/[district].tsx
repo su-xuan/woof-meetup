@@ -13,14 +13,14 @@ interface IDistrictPage {
 const Home: NextPage<IDistrictPage> = ({ events, district }) => {
   const [event] = events;
   return (
-    <>
+    <div className="pt-16 mx-5">
       <Stage
         title={district.name}
         description={district.description}
         images={district.images}
       />
       <EventList events={events} />
-    </>
+    </div>
   );
 };
 
