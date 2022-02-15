@@ -11,7 +11,7 @@ const DetailPage: NextPage<IDetailPage> = ({ event }) => {
 
   const { title, image, time, location, description} = event
   return (
-    <div className="mx-5 grid grid-cols-1 md:grid-cols-2">
+    <div className="mx-5 pt-16 grid grid-cols-1 md:grid-cols-2">
       <div className="my-2 mx-2.5">
         <h1 className="font-bold text-2xl py-2 text-center text-orange-600 md:text-4xl">
           {title}
@@ -22,7 +22,7 @@ const DetailPage: NextPage<IDetailPage> = ({ event }) => {
             alt={image.alt}
             height={500}
             width={400}
-            className="object-contain"
+            className="object-fit"
           />
         </div>
       </div>

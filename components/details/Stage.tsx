@@ -24,21 +24,22 @@ const Stage: React.FC<Stage> = ({ title, description, images }) => {
         </h1>
         <p className="text-base leading-8">{description}</p>
       </div>
-      <div className="mx-auto my-2 ">
+      <div className="mx-auto items-center my-2">
         {/* <Slider className="w-full" {...settings}> */}
         {/* {images.map((image) => (
             <div key={image.alt}>
               <Image src={image.src} alt={image.alt} height={500} width={400} />
             </div>
           ))} */}
-        <div>
-          <Image
-            src={images[0].src}
-            alt={images[0].alt}
-            height={500}
-            width={400}
-          />
-        </div>
+
+        <Image
+          src={images[0].src}
+          alt={images[0].alt}
+          height={500}
+          width={400}
+          className="object-fit"
+        />
+
         {/* <div>
             <Image
               src={images[1].src}

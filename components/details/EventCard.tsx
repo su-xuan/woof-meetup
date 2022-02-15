@@ -6,11 +6,11 @@ const EventCard: React.FC<IEvent> = (event) => {
   const {_id, title, image, time, location } = event;
   return (
     <div className="flex justify-center py-3.5">
-      <div className="rounded-lg shadow-lg max-w-sm">
+      <div className="rounded-lg shadow-lg max-w-xs">
         <Link href={`/events/${_id}`} passHref >
           <Image src={image.src} alt={image.alt} height={250} width={384} className="rounded-t-lg"/>
         </Link>
-        <div className="pt-6 px-4">
+        <div className="pt-6 px-4 h-35 truncate max-w-[17rem]">
           <h5 className="text-orange-700 text-xl font-medium mb-2">{title}</h5>
           <ul className="flex flex-col">
             <li key="time" className="flex pt-2">

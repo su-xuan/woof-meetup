@@ -24,14 +24,14 @@ interface IHomePage {
 
 const Home: NextPage<IHomePage> = ({ events }) => {
   return (
-    <>
+    <div className="w-full pt-16">
       <Stage
         title={dummyData.title}
         description={dummyData.description}
         images={dummyData.images}
       />
       <EventList events={events} />
-    </>
+    </div>
   );
 };
 
