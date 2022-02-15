@@ -22,3 +22,7 @@ export interface IDistrict {
   images: IImage[]
   
   }
+export interface ILayout {
+  children: React.ReactNode
+  districts: IDistrict[]
+}

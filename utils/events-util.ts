@@ -21,7 +21,7 @@ export const getAllEvents = async () => {
   });
 };
 
-export const getAllDistrictSlugs = async () => {
+export const getAllDistricts = async () => {
   const getDocument = async (client: MongoClient) => {
     const db = client.db("meetup");
     const collectionDb = db.collection("districts");
@@ -32,8 +32,14 @@ export const getAllDistrictSlugs = async () => {
   const client = await connectDatabase();
   const districts = await getDocument(client);
   
-  return districts.map((district) => {
-    return { slug: district.slug }
+  return <IDistrict[]> districts.map((district) => {
+    return <IDistrict> { 
+      _id: district._id.toString(),
+      slug: district.slug,
+      name: district.name,
+      description: district.description,
+      images: district.images
+    }
   });
 }
 
@@ -88,3 +94,4 @@ export const getDistrictBySlug = async (slug: string) => {
     _id: district?._id.toString()
   }
 }
+
