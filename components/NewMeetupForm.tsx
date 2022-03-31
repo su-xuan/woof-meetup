@@ -29,11 +29,11 @@ interface IProps {
 
 const NewMeetupForm = ({ onAddMeetup }: IProps) => {
   const titleInput = useRef() as MutableRefObject<HTMLInputElement>;
-  const descriptionInput = useRef() as MutableRefObject<HTMLInputElement>;
+  const descriptionInput = useRef() as MutableRefObject<HTMLTextAreaElement>;
   const locationInput = useRef() as MutableRefObject<HTMLInputElement>;
   const timeInput = useRef() as MutableRefObject<HTMLInputElement>;
-  const districtInput = useRef() as MutableRefObject<HTMLInputElement>;
-  const imageInput = useRef() as MutableRefObject<HTMLInputElement>;
+  const districtInput = useRef() as MutableRefObject<HTMLSelectElement>;
+  const imageInput = useRef() as MutableRefObject<HTMLSelectElement>;
 
   const submitEvent = () => {
     const eTitle = titleInput.current.value;
