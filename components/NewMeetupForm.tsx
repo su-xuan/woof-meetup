@@ -1,8 +1,8 @@
-import { useRef } from "react";
-import { INewEvent } from "../utils/interfaces";
+import { MutableRefObject, useRef } from "react";
+import { Images, INewEvent } from "../utils/interfaces";
 import Button from "./ui/Button";
 
-const images = {
+const images: Images = {
   dachshund: { src: "/images/events/dachshund.jpeg", alt: "Dachshunds" },
   frenchie: {
     src: "/images/events/frenchbulldog.jpeg",
@@ -24,16 +24,16 @@ const images = {
 };
 
 interface IProps {
-  onAddMeetup: (event: INewEvent)=>void
+  onAddMeetup: (event: INewEvent) => void;
 }
 
-const NewMeetupForm = ({onAddMeetup}:IProps) => {
-  const titleInput = useRef();
-  const descriptionInput = useRef();
-  const locationInput = useRef();
-  const timeInput = useRef();
-  const districtInput = useRef();
-  const imageInput = useRef();
+const NewMeetupForm = ({ onAddMeetup }: IProps) => {
+  const titleInput = useRef() as MutableRefObject<HTMLInputElement>;
+  const descriptionInput = useRef() as MutableRefObject<HTMLInputElement>;
+  const locationInput = useRef() as MutableRefObject<HTMLInputElement>;
+  const timeInput = useRef() as MutableRefObject<HTMLInputElement>;
+  const districtInput = useRef() as MutableRefObject<HTMLInputElement>;
+  const imageInput = useRef() as MutableRefObject<HTMLInputElement>;
 
   const submitEvent = () => {
     const eTitle = titleInput.current.value;
@@ -41,7 +41,8 @@ const NewMeetupForm = ({onAddMeetup}:IProps) => {
     const eTime = timeInput.current.value;
     const eDistrict = districtInput.current.value;
     const eLocation = locationInput.current.value;
-    const eImage = images[imageInput.current.value];
+    const eImageKey = imageInput.current.value;
+    const eImage = images[eImageKey];
 
     const convertSlug = (title: string): string => {
       const pattern = /\W/g;
