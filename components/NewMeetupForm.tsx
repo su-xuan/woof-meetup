@@ -1,8 +1,8 @@
 import { MutableRefObject, useRef } from "react";
-import { Images, INewEvent } from "../utils/interfaces";
+import { IImages, INewEvent } from "../utils/interfaces";
 import Button from "./ui/Button";
 
-const images: Images = {
+const images: IImages = {
   dachshund: { src: "/images/events/dachshund.jpeg", alt: "Dachshunds" },
   frenchie: {
     src: "/images/events/frenchbulldog.jpeg",

@@ -36,3 +36,7 @@ export interface INewEvent {
   slug: string;
   description: string
 }
+
+export interface IImages {
+  [key:string]: IImage
+}
