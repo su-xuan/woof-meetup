@@ -22,7 +22,7 @@ const Navigation: React.FC<INavigation> = ({ districts }) => {
         <span className="hidden md:flex text-4xl text-orange-700 font-extrabold self-center mx-auto">
           WOOF MEETUP
         </span>
-        <div className="">
+        <div>
           <MenuButton onClick={menuHandler} />
         </div>
       </div>

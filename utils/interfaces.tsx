@@ -26,3 +26,13 @@ export interface ILayout {
   children: React.ReactNode
   districts: IDistrict[]
 }
+
+export interface INewEvent {
+  title: string;
+  image: IImage;
+  time: string;
+  location: string;
+  district: string;
+  slug: string;
+  description: string
+}
